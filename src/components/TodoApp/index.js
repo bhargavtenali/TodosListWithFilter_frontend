@@ -153,7 +153,7 @@ function TodoApp() {
                             <label className="labelStyle" htmlFor="incomplete" >Not Complete</label>
                         </div>
                     </div>
-                    <button className="button" type="submit">Add Todo</button>
+                    <button className="button" type="submit">Add Task</button>
                 </form>
                 <div className="todoList-container">
                     <h1 className="heading">TODO LIST</h1>
