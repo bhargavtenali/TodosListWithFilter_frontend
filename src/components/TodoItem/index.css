@@ -1,0 +1,7 @@
+.incompleteClass {
+  color: red;
+}
+.completeClass {
+  color: green;
+  text-decoration: line-through;
+}
