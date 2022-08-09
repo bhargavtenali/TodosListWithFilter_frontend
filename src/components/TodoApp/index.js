@@ -21,7 +21,7 @@ function TodoApp() {
             isComplete: (status === STATUS_CONSTANTS.COMPLETE ? true : false)
         };
         const actualTodosList = JSON.parse(localStorage.getItem("todolist"))
-        const newActualTodosList = [...actualTodosList, newTodoItem]
+        const newActualTodosList = actualTodosList ? [...actualTodosList, newTodoItem] : [newTodoItem]
         localStorage.setItem("todolist", JSON.stringify(newActualTodosList))
         const filteredTodos = newActualTodosList.filter((item) => {
             if (displayFilter === "all") {
@@ -79,14 +79,14 @@ function TodoApp() {
     const changeFilterHandler = (event) => {
         const currentFilterValue = event.target.value
         const actualTodosList = JSON.parse(localStorage.getItem("todolist"))
-        const filteredTodos = actualTodosList.filter((item) => {
+        const filteredTodos = actualTodosList ? (actualTodosList.filter((item) => {
             if (currentFilterValue === "all") {
                 return true
             }
             else {
                 return ((item.isComplete ? STATUS_CONSTANTS.COMPLETE : STATUS_CONSTANTS.INCOMPLETE) === currentFilterValue)
             }
-        })
+        })) : []
         changeTodosList(filteredTodos)
         changedisplayFilter(currentFilterValue)
     }
