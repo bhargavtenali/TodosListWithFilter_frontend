@@ -4,9 +4,10 @@ import TodoItem from "../TodoItem";
 import { v4 } from "uuid";
 
 const STATUS_CONSTANTS = { COMPLETE: "complete", INCOMPLETE: "incomplete" }
+const defaultTodosList = localStorage.getItem("todolist") ? JSON.parse(localStorage.getItem("todolist")) : []
 
 function TodoApp() {
-    const [todosList, changeTodosList] = useState(JSON.parse(localStorage.getItem("todolist")));
+    const [todosList, changeTodosList] = useState(defaultTodosList);
     const [name, changeName] = useState("");
     const [description, changeDescription] = useState("");
     const [time, changeTime] = useState("");
